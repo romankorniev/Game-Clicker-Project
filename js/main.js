@@ -45,6 +45,8 @@ function createCircle(){
   const circle = document.createElement('div')
   circle.classList.add('circle')
   const {x, y} = getRandomPosition()
+  const {r,g, b} = circleColor()
+  circle.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
   circle.style.left = `${x}px` 
   circle.style.top = `${y}px`
   gameContainer.appendChild(circle)
@@ -65,7 +67,14 @@ function createCircle(){
       updateScore()
       if (gameActive) createCircle()
     }
-  }, 700)
+  }, 800)
+}
+
+function circleColor(){
+  const r = Math.floor(Math.random() * 256)
+  const g = Math.floor(Math.random() * 256)
+  const b = Math.floor(Math.random() * 256)
+  return {r, g, b}
 }
 
 function getRandomPosition(){
