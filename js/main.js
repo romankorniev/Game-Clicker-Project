@@ -42,7 +42,11 @@ function endGame(){
   Твій результат: ${score}, час гри: ${gameDuration} сек`
   gameContainer.appendChild(result)
   startGameBtn.style.display = 'block'
+
+  saveResult(score, gameDuration)
 }
+
+displayResults()
 
 function clearGameContainer(){
   gameContainer.lastElementChild.remove()
@@ -101,3 +105,21 @@ function updateTimer(){
   document.getElementById('timer').textContent = `Time: ${timer}`
 }
 
+function saveResult(score, gameDuration) {
+  const results = JSON.parse(localStorage.getItem('gameResults')) || []
+  results.push({ score, gameDuration, date: new Date().toLocaleString() })
+  localStorage.setItem('gameResults', JSON.stringify(results))
+  displayResults()
+}
+
+function displayResults() {
+  const resultsList = document.getElementById('results-list')
+  resultsList.innerHTML = ''
+
+  const results = JSON.parse(localStorage.getItem('gameResults')) || []
+  results.forEach((res, index) => {
+    const li = document.createElement('li')
+    li.textContent = `${index + 1}. Score: ${res.score}, Час гри: ${res.gameDuration} сек, Дата: ${res.date}`
+    resultsList.appendChild(li)
+  })
+}

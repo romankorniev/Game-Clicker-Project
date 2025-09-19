@@ -1,56 +1,90 @@
 body {
   background-color: #f3f3f3;
+  font-family: Arial, sans-serif;
 }
 
-.container{
-  width: 860px;
-  height: 96vh;
-  margin: 0 auto;
-  padding: 10px 50px;
-  border-radius: 50px;
+.container {
+  max-width: 96vw;
+  overflow-x: auto; 
+}
+
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-.info{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container label{
-  font-size: 30px;
-  font-weight: 800;
-  font-family: cursive;
-}
-
-#duration{
-  font-size: 35px;
-  width: 80px;
-  border: 3px solid;
-  border-radius: 20px;
+.info label {
+  font-size: 24px;
   font-weight: 700;
+  margin-right: 10px;
+}
+
+#duration {
+  font-size: 20px;
+  width: 80px;
+  border: 2px solid #000;
+  border-radius: 10px;
   text-align: center;
+  font-weight: 700;
 }
 
-#game-container{
-    width: 1000px;
-    height: 1000px;
-    border: 5px solid #000;
-    border-radius: 15px;
-    background-color: #fff;
-    margin: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: relative;
-    flex-direction: column;
+#score, #timer {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 30px;
 }
 
-#startGameBtn{
+.game-wrapper {
+  display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#results-container {
+  width: 300px;
+  max-height: 1000px;     
+  border: 5px solid #000;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 10px;
+  overflow-y: auto;    
+}
+
+#results-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#results-list {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+#results-list li {
+  margin-bottom: 8px; 
+  font-size: 18px;
+}
+
+#game-container {
+  width: 1000px;
+  height: 800px;
+  border: 5px solid #000;
+  border-radius: 15px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0; 
+  flex-direction: column;
+}
+
+#startGameBtn {
   font-weight: 800;
-  font-family: cursive;
   color: white;
   background-color: red;
   font-size: 50px;
@@ -60,21 +94,15 @@ body {
   border-radius: 50%;
   transition: 0.3s;
   border: 1px solid black;
-
 }
-#startGameBtn:hover{
+
+#startGameBtn:hover {
   background-color: rgb(212, 1, 1);
   font-size: 45px;
   border: 5px solid black;
 }
 
-#score, #timer{
-  font-size: 30px;
-  font-weight: 800;
-  margin-right: 40px;
-}
-
-.circle{
+.circle {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -82,10 +110,11 @@ body {
   cursor: pointer;
   border-radius: 50%;
   transition: 0.3s;
-  &:hover {
-    width: 55px;
-    height: 55px;
-  }
+}
+
+.circle:hover {
+  width: 55px;
+  height: 55px;
 }
 
 h2 {
