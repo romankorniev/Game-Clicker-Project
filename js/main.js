@@ -9,10 +9,13 @@ let interval
 startGameBtn.addEventListener('click', startGame)
 
 function startGame(){
+  gameContainer.innerHTML = ''
+  gameContainer.appendChild(startGameBtn)
   startGameBtn.style.display =  'none'
   gameActive = true
   score = 0
-  timer = parseInt(document.getElementById('duration').value) || 10
+  gameDuration = parseInt(document.getElementById('duration').value) || 10 
+  timer = gameDuration
   
   updateScore()
   updateTimer()
@@ -33,6 +36,11 @@ function endGame(){
   gameActive = false
   clearInterval(interval)
   clearGameContainer()
+  const result = document.createElement('h2')
+  result.innerHTML = `Гру закінчено! 
+  <br>
+  Твій результат: ${score}, час гри: ${gameDuration} сек`
+  gameContainer.appendChild(result)
   startGameBtn.style.display = 'block'
 }
 

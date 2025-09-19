@@ -35,16 +35,17 @@ body {
 }
 
 #game-container{
-  width: 1000px;
-  height: 1000px;
-  border: 5px solid #000;
-  border-radius: 15px;
-  background-color: #fff;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative
+    width: 1000px;
+    height: 1000px;
+    border: 5px solid #000;
+    border-radius: 15px;
+    background-color: #fff;
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
 }
 
 #startGameBtn{
@@ -54,8 +55,8 @@ body {
   background-color: red;
   font-size: 50px;
   cursor: pointer;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   transition: 0.3s;
   border: 1px solid black;
